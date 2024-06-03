@@ -22,7 +22,11 @@ export default async function SetupPage() {
     }
   });
 
-  if (server) return redirect(`/servers/${server.id}`);
+  if (server) {
+    console.log(`Redirecting to /servers/${server.id}`);
+    return redirect(`/servers/${server.id}`);
+  }
+  
 
   return <InitialModal />
 
