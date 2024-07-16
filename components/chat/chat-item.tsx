@@ -4,6 +4,7 @@ import { Member, Profile , MemberRole } from "@prisma/client";
 import  UserAvatar  from "@/components/user-avatar";
 import Image from 'next/image';
 import { ActionTooltip } from "../action-tooltip";
+import { useState } from "react";
 
 import { FileIcon, ShieldAlert, ShieldCheck } from "lucide-react";
 
@@ -42,6 +43,8 @@ export const ChatItem = ({
 
 }: ChatItemProps) => {
 
+    const [isEditing, setIsEditing] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
     const fileType = fileUrl?.split(".").pop()
 
     const isAdmin = currentMember.role === MemberRole.ADMIN;
